@@ -73,7 +73,13 @@ def best_params():
 
 Visulaization of the dataset generated in [Reg Data Gen File](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/RegDataGen.py) for Linear Regression
 
-![Dataset]()
+![Dataset](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/RegDataSet.png)
+
+#### Most Fit Line
+
+Visualization of the most fit line on the given Dataset.
+
+![FitLine](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/OpttimizedRegLine.png)
 
 ### Security
 
