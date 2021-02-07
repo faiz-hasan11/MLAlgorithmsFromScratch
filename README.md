@@ -48,8 +48,27 @@ Alpha is the learning rate which is a hyperparameter that you must specify. A sm
 ![Updation](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/update.png)
 Here a0 is w and w1 is b.
 
-## TYPO3 setup
-
+#### Optimization
+We pass a set of hyperparameter and try to find their best value for best results.
+```javascript
+def best_params():
+    lr_list = [0.1, 0.01, 0.05, 0.001, 0.005, 0.0001, 0.0005]
+    mse_min = 10000000
+    lr_min = 0
+    n_iter_min = 0
+    for lr_val in lr_list:
+        for iteration in range(1000, 10000, 10):
+            reg = LinearRegression(learning_rate=lr_val, n_iters=iteration)
+            reg.fit(X_train, Y_train)
+            predicted = reg.predict(X_test)
+            mse_val = mse(Y_test, predicted)
+            if mse_val < mse_min:
+                mse_min = mse_val
+                lr_min = lr_val
+                n_iter_min = iteration
+    return (lr_min, n_iter_min)
+}
+```
 ### Database setup
 
 If you use MySQL < 5.7.8, you have to use `utf8` and `utf8_unicode_ci` instead because those MySQL versions can't handle the long indexes created by `utf8mb4` (up to four bytes per character) and you will get errors like
