@@ -40,13 +40,13 @@ Gradient descent is a method of updating `w` and `b` to reduce the cost function
 To update `w` and `b`, we take gradients from the cost function. To find these gradients, we take partial derivatives with of cost function respect to `w` and `b`. 
 
 ![Partial Derivative](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/CostUpdation.png)
-Here a0 is w and w1 is b.
+Here a0 is b and w1 is w.
 
 #### Learning Rate
 Alpha is the learning rate which is a hyperparameter that you must specify. A smaller learning rate could get you closer to the minima but takes more time to reach the minima, a larger learning rate converges sooner but there is a chance that you could overshoot the minima. With the help of Alpha we update `w` and `b`.
  
 ![Updation](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/update.png)
-Here a0 is w and w1 is b.
+Here a0 is b and w1 is w.
 
 #### Finding Best HyperParameters
 We pass a set of hyperparameter and try to find their best value for best results.
@@ -126,31 +126,27 @@ Gradient descent has an analogy in which we have to imagine ourselves at the top
 
 ![GD](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/GDLR.jpeg)
 
-* In Import / Export view
-* Select the uploaded file from the drop-down menu
-* Click on the "Preview" button
-* The pages that will be imported are shown below
-* Click on the "Import" button that has appeared
-* Confirm to import the pages
+#### Finding Best HyperParameters
 
-![Import the uploaded page tree file](https://aimeos.org/docs/images/Aimeos-typo3-pages-import.png)
+We pass a set of hyperparameter and try to find their best value for best results.
 
-Now you have a new page "Shop" in your page tree including all required sub-pages.
+```javascript
+def best_params():
+    lr_list = [0.1, 0.01, 0.05, 0.001, 0.005, 0.0001, 0.0005]
+    acc_max = 0
+    lr_max = 0
+    n_iter_max = 0
+    iter_list = [i*1000 for i in range(1, 11)]
+    for lr_val in lr_list:
+        for iteration in iter_list:
+            reg = LogisticRegression(lr=lr_val, n_iters=iteration)
+            reg.fit(X_train, Y_train)
+            predictions = reg.predict(X_test)
+            acc = accuracy(Y_test, predictions)
+            if acc > acc_max:
+                acc_max = acc
+                lr_max = lr_val
+                n_iter_max = iteration
+    return (lr_max, n_iter_max)
+```
 
-### SEO-friendly URLs
-
-TYPO3 9.5 and later can create SEO friendly URLs if you add the rules to the site config:
-[https://aimeos.org/docs/latest/typo3/setup/#seo-urls](https://aimeos.org/docs/latest/typo3/setup/#seo-urls)
-
-## License
-
-The Aimeos TYPO3 extension is licensed under the terms of the GPL Open Source
-license and is available for free.
-
-## Links
-
-* [Web site](https://aimeos.org/integrations/typo3-shop-extension/)
-* [Documentation](https://aimeos.org/docs/TYPO3)
-* [Forum](https://aimeos.org/help/typo3-extension-f16/)
-* [Issue tracker](https://github.com/aimeos/aimeos-typo3/issues)
-* [Source code](https://github.com/aimeos/aimeos-typo3)
