@@ -48,7 +48,7 @@ Alpha is the learning rate which is a hyperparameter that you must specify. A sm
 ![Updation](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/update.png)
 Here a0 is w and w1 is b.
 
-#### Optimization
+#### Finding Best HyperParameters
 We pass a set of hyperparameter and try to find their best value for best results.
 ```javascript
 def best_params():
