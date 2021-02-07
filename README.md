@@ -84,8 +84,47 @@ Visualization of the most fit line on the given Dataset.
 ### Logistic Regression
 
 Logistic Regression is a Machine Learning algorithm which is used for the classification problems, it is a predictive analysis algorithm and based on the concept of probability.
-Logistic Regression uses a more complex cost function, this cost function can be defined as the ‘Sigmoid function’.
-### Import the page tree
+Logistic Regression uses a more complex cost function, this cost function can be defined as the ‘Sigmoid function’.The hypothesis of logistic regression tends it to limit the cost function between 0 and 1.
+
+## Sigmoid Function
+
+Sigmoid function maps any real value into another value between 0 and 1. In machine learning, we use sigmoid to map predictions to probabilities.
+
+![Graph](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/sigmoidgraph.png)
+![Formula](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/sigmoidformula.png)
+
+## Hypothesis Representation
+
+When using linear regression we used a formula of the hypothesis i.e.
+
+`y = w * x + b`
+
+For logistic regression we are going to modify it a little bit i.e.
+
+`σ(y) = σ(w * x + b)`
+
+ σ() = Sigmoid Function
+ 
+ ![HypoThesis](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/LogRegHypo.png)
+ 
+## Decision Boundary
+
+We expect our classifier to give us a set of outputs or classes based on probability when we pass the inputs through a prediction function and returns a probability score between 0 and 1.
+
+## Cost Function
+
+If we try to use the cost function of the linear regression in ‘Logistic Regression’ then it would be of no use as it would end up being a non-convex function with many local minimums, in which it would be very difficult to minimize the cost value and find the global minimum.
+
+Instead We Use =>
+
+![CostFunction](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/LRCostFunction.png)
+
+## Gradient Descent
+
+The main goal of Gradient descent is to minimize the cost value. i.e. min J(θ).Now to minimize our cost function we need to run the gradient descent function on each parameter.
+Gradient descent has an analogy in which we have to imagine ourselves at the top of a mountain valley and left stranded and blindfolded, our objective is to reach the bottom of the hill. Feeling the slope of the terrain around you is what everyone would do.
+
+![GD](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/GDLR.jpeg)
 
 * In Import / Export view
 * Select the uploaded file from the drop-down menu
