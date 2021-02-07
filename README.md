@@ -69,7 +69,7 @@ def best_params():
     return (lr_min, n_iter_min)
 }
 ```
-### Dataset
+#### Dataset
 
 Visulaization of the dataset generated in [Reg Data Gen File](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/RegDataGen.py) for Linear Regression
 
@@ -81,58 +81,10 @@ Visualization of the most fit line on the given Dataset.
 
 ![FitLine](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/OpttimizedRegLine.png)
 
-### Security
+### Logistic Regression
 
-Since **TYPO3 9.5.14+** implements **SameSite cookie handling** and restricts when browsers send cookies to your site. This is a problem when customers are redirected from external payment provider domain. Then, there's no session available on the confirmation page. To circumvent that problem, you need to set the configuration option `cookieSameSite` to `none` in your `./typo3conf/LocalConfiguration.php`:
-
-```
-    'FE' => [
-        'cookieSameSite' => 'none'
-    ]
-```
-
-### Extension
-
-* Log into the TYPO3 back end
-* Click on ''Admin Tools::Extension Manager'' in the left navigation
-* Click the icon with the little plus sign left from the Aimeos list entry (looks like a lego brick)
-
-![Install Aimeos TYPO3 extension](https://aimeos.org/docs/images/Aimeos-typo3-extmngr-install.png)
-
-### Database
-
-Afterwards, you have to execute the update script of the extension to create the required database structure:
-
-![Execute update script](https://aimeos.org/docs/images/Aimeos-typo3-extmngr-update-7.x.png)
-
-## Page setup
-
-The page setup for an Aimeos web shop is easy if you import the example page tree for TYPO3 9/10:
-
-* [20.10.x page tree](https://aimeos.org/fileadmin/download/Aimeos-pages_20.10.t3d)
-* [19.10.x page tree](https://aimeos.org/fileadmin/download/Aimeos-pages_two-columns_18.10__2.t3d)
-
-**Note:** The Aimeos layout expects [Bootstrap](https://getbootstrap.com) providing the grid layout!
-
-### Go to the import view
-
-* In Web::Page, root page (the one with the globe)
-* Right click on the globe
-* Move the cursor to "Branch actions"
-* In the sub-menu, click on "Import from .t3d"
-
-![Go to the import view](https://aimeos.org/docs/images/Aimeos-typo3-pages-menu.png)
-
-### Upload the page tree file
-
-* In the page import dialog
-* Select the "Upload" tab (2nd one)
-* Click on the "Select" dialog
-* Choose the file you've downloaded
-* Press the "Upload files" button
-
-![Upload the page tree file](https://aimeos.org/docs/images/Aimeos-typo3-pages-upload.png)
-
+Logistic Regression is a Machine Learning algorithm which is used for the classification problems, it is a predictive analysis algorithm and based on the concept of probability.
+Logistic Regression uses a more complex cost function, this cost function can be defined as the ‘Sigmoid function’.
 ### Import the page tree
 
 * In Import / Export view
