@@ -28,9 +28,25 @@ The motive of the linear regression algorithm is to find the best values for w a
 The cost function helps us to figure out the best possible values for `w` and `b` which would provide the best fit line for the data points. Since we want the best values for `w` and `b`, we convert this search problem into a minimization problem where we would like to minimize the error between the predicted value and the actual value.
 
 
-![Cost Fucntion](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/1_wQCSNJ486WxL4mZ3FOYtgw.png)
+![Cost Function](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/1_wQCSNJ486WxL4mZ3FOYtgw.png)
 
 This cost function is also known as the Mean Squared Error(MSE) function. Now, using this MSE function we are going to change the values of `w` and `b` such that the MSE value settles at the minima.
+
+#### Gradient Descent
+Gradient descent is a method of updating `w` and `b` to reduce the cost function(MSE). The idea is that we start with some values for `w` and `b` and then we change these values iteratively to reduce the cost. Gradient descent helps us on how to change the values.
+
+![Gradient Descent](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/GradientDescent.png)
+
+To update `w` and `b`, we take gradients from the cost function. To find these gradients, we take partial derivatives with of cost function respect to `w` and `b`. 
+
+![Partial Derivative](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/CostUpdation.png)
+Here a0 is w and w1 is b.
+
+#### Learning Rate
+Alpha is the learning rate which is a hyperparameter that you must specify. A smaller learning rate could get you closer to the minima but takes more time to reach the minima, a larger learning rate converges sooner but there is a chance that you could overshoot the minima. With the help of Alpha we update `w` and `b`.
+ 
+![Updation](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/update.png)
+Here a0 is w and w1 is b.
 
 ## TYPO3 setup
 
