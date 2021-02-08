@@ -149,6 +149,7 @@ def best_params():
                 n_iter_max = iteration
     return (lr_max, n_iter_max)
 ```
+
 #### Dataset
 
 The Dataset used is the [Breast Cancer](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html) taken from the SkLearn Library. It has 2 output classes.
@@ -191,3 +192,29 @@ Distance can be calculated using =>
 - Minkowski Distance
 
 Here I have used Euclidean Distance.
+![Euclidean](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/euclidean.png)
+
+#### Finding Best HyperParameters
+
+We pass a set of hyperparameter and try to find their best value for best results.
+
+```javascript
+def best_params(acc_max, k_best):
+    for k_val in range(3, 11, 2):
+        clf = KNN(k=k_val)
+        clf.fit(X_train, Y_train)
+        predictions = clf.predict(X_test)
+        acc = np.sum(predictions == Y_test) / len(Y_test)
+        if acc > acc_max:
+            acc_max = acc
+            k_best = k_val
+    return (acc_max, k_best)
+```
+
+#### Dataset
+
+The Dataset used is the [Iris](https://scikit-learn.org/stable/auto_examples/datasets/plot_iris_dataset.html) taken from the SkLearn Library. It has 3 output classes.
+
+#### Accuracy
+
+The model achieved an accuarcy of approx 96.7% with k = 5
