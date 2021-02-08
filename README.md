@@ -1,7 +1,7 @@
 
 MLAlgorithmsFromScratch
 ======================
-This repository contains my understanding and implementation of basic machine learning algorithms from scratch using Numpy..
+This repository contains my understanding and implementation of basic machine learning algorithms from scratch using Numpy. An atempt has been made to find the best hyperparameters to achieve best accuracy.
 
 ## Table of content
 - [Linear Regression](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/LinearRegression.py)
@@ -156,3 +156,38 @@ The Dataset used is the [Breast Cancer](https://scikit-learn.org/stable/modules/
 #### Accuracy
 
 The model achieved an accuarcy of approx 92% with Learning Rate = 0.0001 and Number Of Iterations = 1000
+
+### KNN
+
+K nearest neighbors is a supervised machine learning algorithm often used in classification problems. It works on the simple assumption that “The apple does not fall far from the tree” meaning similar things are always in close proximity. This algorithm works by classifying the data points based on how the neighbors are classified. Any new case is classified based on a similarity measure of all the available cases.
+
+#### Concepts about KNN
+
+- **Lazy Learning Algorithm** — It is a lazy learner because it does not have a training phase but rather memorizes the training dataset.
+- **Case-Based Learning Algorithm** -The algorithm uses raw training instances from the problem domain to make predictions and is often referred to as an instance based or case-based learning algorithm. Case-based learning implies that KNN does not explicitly learn a model. Rather it memorizes the training instances/cases which are then used as “knowledge” for the prediction phase. 
+- **Non-Parametric** — A non-parametric method has either a fixed number of parameters regardless of the data size or has no parameters. In KNN, irrespective of the size of data, the only unknown parameter is K.
+
+#### What is K in KNN algorithm?
+
+K in KNN is the number of nearest neighbors considered for assigning a label to the current point. K is an extremely important parameter and choosing the value of K is the most critical problem when working with the KNN algorithm. The process of choosing the right value of K is referred to as parameter tuning and is of great significance in achieving better accuracy. Most data scientists usually choose an odd number value for K when the number of classes is 2.
+
+#### When should you use KNN Algorithm?
+
+KNN algorithm is a good choice if you have a small dataset and the data is noise free and labeled. When the data set is small, the classifier completes execution in shorter time duration. If your dataset is large, then KNN, without any hacks, is of no use.
+
+#### How does KNN work?
+
+- Choose a value for K. K should be an odd number.
+- Find the distance of the new point to each of the training data.
+- Find the K nearest neighbors to the new data point.
+- For classification, count the number of data points in each category among the k neighbors. New data point will belong to class that has the most neighbors.
+
+#### How is the distance calculated?
+
+Distance can be calculated using =>
+- Euclidean distance
+- Manhattan distance
+- Hamming Distance
+- Minkowski Distance
+
+Here I have used Euclidean Distance.
