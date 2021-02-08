@@ -155,4 +155,4 @@ The Dataset used is the [Breast Cancer](https://scikit-learn.org/stable/modules/
 
 #### Accuracy
 
-The model achieved an accuarcy of approx 92% with Learning Rate = 0.001 and Number Of Iterations = 1000
+The model achieved an accuarcy of approx 92% with Learning Rate = 0.0001 and Number Of Iterations = 1000
