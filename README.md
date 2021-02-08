@@ -6,7 +6,8 @@ This repository contains my understanding and implementation of basic machine le
 ## Table of content
 - [Linear Regression](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/LinearRegression.py)
 - [Logistic Regression](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/LogisticRegression.py)
-- [KNN](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/KNN.py)
+- [K Nearest Neighbours](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/KNN.py)
+- [Support Vector Machines](Support Vector Machines)
 
 ## Algorithms
 
@@ -218,3 +219,14 @@ The Dataset used is the [Iris](https://scikit-learn.org/stable/auto_examples/dat
 #### Accuracy
 
 The model achieved an accuarcy of approx 96.7% with k = 5
+
+### Support Vector Machines
+
+Simple linear regression is a type of regression analysis where the number of independent variables is one and there is a linear relationship between the independent(x) and dependent(y) variable.
+
+` y  = w * x + b `
+
+w = weights
+b = bias
+
+The motive of the linear regression algorithm is to find the best values for w and b.
