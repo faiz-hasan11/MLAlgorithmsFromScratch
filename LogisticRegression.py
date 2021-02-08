@@ -20,6 +20,8 @@ class LogisticRegression:
             equation = np.dot(X, self.weights) + self.bias
             Y_pred = self.sigmoid(equation)
 
+            cost = (-1 / n_samples) * np.sum(Y*np.log(Y_pred) + (1-Y)*np.log(1-Y_pred)) 
+            
             dw = (1 / n_samples) * np.dot(X.T, (Y_pred - y))
             db = (1 / n_samples) * np.sum(Y_pred - y)
 
