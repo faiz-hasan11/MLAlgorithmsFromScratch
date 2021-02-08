@@ -152,3 +152,7 @@ def best_params():
 #### Dataset
 
 The Dataset used is the [Breast Cancer](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html) taken from the SkLearn Library. It has 2 output classes.
+
+#### Accuracy
+
+The model achieved an accuarcy of approx 92% with Learning Rate = 0.001 and Number Of Iterations = 1000
