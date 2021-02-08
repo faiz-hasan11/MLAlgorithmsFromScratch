@@ -16,6 +16,8 @@ class LinearRegression:
         for _ in range(self.n_iters):
             Y_predicted = np.dot(X, self.weights) + self.bias
 
+            cost = (1/n_samples)*(np.sum((Y - Y_pred)**2))
+            
             dw = (1 / n_samples) * np.dot(X.T, (Y_predicted - Y))
             db = (1 / n_samples) * np.sum(Y_predicted - Y)
 
