@@ -7,7 +7,7 @@ This repository contains my understanding and implementation of basic machine le
 - [Linear Regression](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/LinearRegression.py)
 - [Logistic Regression](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/LogisticRegression.py)
 - [K Nearest Neighbours](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/KNN.py)
-- [Support Vector Machines](Support Vector Machines)
+- [Support Vector Machines](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/SVM.py)
 
 ## Algorithms
 
@@ -51,6 +51,7 @@ Here a0 is b and w1 is w.
 
 #### Finding Best HyperParameters
 We pass a set of hyperparameter and try to find their best value for best results.
+
 ```javascript
 def best_params():
     lr_list = [0.1, 0.01, 0.05, 0.001, 0.005, 0.0001, 0.0005]
@@ -218,15 +219,71 @@ The Dataset used is the [Iris](https://scikit-learn.org/stable/auto_examples/dat
 
 #### Accuracy
 
-The model achieved an accuarcy of approx 96.7% with k = 5
+The model achieved an accuracy of approx 96.7% with k = 5
 
 ### Support Vector Machines
 
-Simple linear regression is a type of regression analysis where the number of independent variables is one and there is a linear relationship between the independent(x) and dependent(y) variable.
+Support Vector Machine (SVM) is a supervised machine learning algorithm which can be used for both classification or regression tasks. However, it is mostly used in classification problems.We plot each data item as a point in n-dimensional space (where n is number of features) with the value of each feature being the value of a particular coordinate. Then, we perform classification by finding the hyper-plane that differentiates the two classes very well.
 
-` y  = w * x + b `
+#### Hyperplanes
 
-w = weights
-b = bias
+Hyperplanes are decision boundaries that help classify the data points. Data points falling on either side of the hyperplane can be attributed to different classes. Also, the dimension of the hyperplane depends upon the number of features
 
-The motive of the linear regression algorithm is to find the best values for w and b.
+![HyperPlane](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/hyperplane.png)
+
+Equation of the HyperPlane is =>
+
+![Equation](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/SVMEquation.png)
+
+#### Hinge Loss
+
+In the SVM algorithm, we want to maximize the margin between the data points and the hyperplane. So we do it with the help of Hinge Loss function.If we’re on the right side of the graph, which means that the predicted and actual value have the same sign, then our cost becomes zero. Otherwise, we have a particular loss value.
+
+![HingeLoss](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/HingeLoss.png)
+
+#### Regularization
+
+We also add a regularization parameter the cost function. The objective of the regularization parameter is to balance the margin maximization and loss. After adding the regularization parameter, the cost functions looks as below.
+
+![Reqularization](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/SVMregularization.png)
+
+#### Gradient Descent 
+
+To minimize the loss , we use Gradient Descent.
+
+![GD](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/SVMGD.png)
+
+#### Finding Best HyperParameters
+
+We pass a set of hyperparameter and try to find their best value for best results.
+
+```javascript
+def best_params():
+    lr_list = [0.1, 0.01, 0.05, 0.001, 0.005, 0.0001, 0.0005]
+    acc_max = 0
+    lr_max = 0
+    lamda_max = 0
+    lambda_list = [0.1, 0.01, 0.05, 0.001, 0.005, 0.0001, 0.0005]
+    for lr_val in lr_list:
+        for lmda in lambda_list:
+            clf = SVM(lr=lr_val, lamda=lmda)
+            clf.fit(X_train, Y_train)
+            predictions = clf.predict(X_test)
+            acc = accuracy(Y_test, predictions)
+            if acc > acc_max:
+                acc_max = acc
+                lr_max = lr_val
+                lamda_max = lmda
+    return (lr_max, lamda_max, acc_max)
+```
+
+#### Dataset
+
+Visulaization of the dataset generated in [SVM Data Gen File](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/SVMDataGen.py) for SVM classification.
+
+![Dataset](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/SVMdata.png)
+
+
+#### Accuracy
+
+The model achieved an accuracy of 100% with Learning Rate =  0.1 and Lambda Value =  0.1
