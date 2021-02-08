@@ -149,4 +149,6 @@ def best_params():
                 n_iter_max = iteration
     return (lr_max, n_iter_max)
 ```
+#### Dataset
 
+The Dataset used is the [Breast Cancer](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html) taken from the SkLearn Library. It has 2 output classes.
