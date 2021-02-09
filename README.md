@@ -8,6 +8,7 @@ This repository contains my understanding and implementation of basic machine le
 - [Logistic Regression](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/LogisticRegression.py)
 - [K Nearest Neighbours](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/KNN.py)
 - [Support Vector Machines](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/SVM.py)
+- [Decision Trees](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/DecisionTree.py)
 
 ## Algorithms
 
@@ -287,3 +288,59 @@ Visulaization of the dataset generated in [SVM Data Gen File](https://github.com
 #### Accuracy
 
 The model achieved an accuracy of 100% with Learning Rate =  0.1 and Lambda Value =  0.1
+
+### Decision Trees
+
+A decision tree is one of the supervised machine learning algorithms, this algorithm can be used for regression and classification problems. It is mostly used for classification problems. A decision tree follows a set of if-else conditions to visualize the data and classify it according to the conditions.
+
+![DecisionTree](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/DecisionTree.png)
+
+#### Working of Decision Tree
+
+The root node feature is selected based on the results from the Attribute Selection Measure(ASM).The ASM is repeated until there is a leaf node or a terminal node where it cannot be split into sub-nodes.
+
+![Working](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/DTWorking.png)
+
+#### Attribute Selective Measure(ASM)
+
+Attribute Subset Selection Measure is a technique used in the data mining process for data reduction. The data reduction is necessary to make better analysis and prediction of the target variable. The two main ASM techniques are =>
+- Gini index
+- Information Gain(ID3)
+
+Here I have used Information Gain.
+
+#### Information Gain
+
+Entropy is the main concept of this algorithm which helps in determining a feature or attribute that gives maximum information about a class is called Information gain or ID3 algorithm. By using this method we can reduce the level of entropy from the root node to the leaf node.
+
+![Entropy](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/entropy.png)
+
+‘p’, denotes the probability of E(S) which denotes the entropy. The feature or attribute with the highest Information gain is used as the root for the splitting.
+
+#### Finding Best HyperParameters
+
+We pass a set of hyperparameter and try to find their best value for best results.
+
+```javascript
+def best_params():
+    acc_max = 0
+    depth_max = 0
+    depth_list = [i*10 for i in range(1, 21)]
+    for depth in depth_list:
+        clf = DecisionTree(max_depth=depth)
+        clf.fit(X_train, Y_train)
+        predictions = clf.predict(X_test)
+        acc = accuracy(Y_test, predictions)
+        if acc > acc_max:
+            acc_max = acc
+            depth_max = depth
+    return (depth_max, acc_max)
+```
+
+#### Dataset
+
+The Dataset used is the [Breast Cancer](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html) taken from the SkLearn Library. It has 2 output classes.
+
+#### Accuracy
+
+The model achieved an accuracy of approx 93% with Max Depth =  50
