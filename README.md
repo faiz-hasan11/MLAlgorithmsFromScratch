@@ -9,6 +9,7 @@ This repository contains my understanding and implementation of basic machine le
 - [K Nearest Neighbours](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/KNN.py)
 - [Support Vector Machines](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/SVM.py)
 - [Decision Trees](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/DecisionTree.py)
+- [Random Forest](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/RandomForest.py)
 
 ## Algorithms
 
@@ -344,3 +345,45 @@ The Dataset used is the [Breast Cancer](https://scikit-learn.org/stable/modules/
 #### Accuracy
 
 The model achieved an accuracy of approx 93% with Max Depth =  50
+
+### Random Forest
+
+The Random Forest Algorithm is composed of different decision trees, each with the same nodes, but using different data that leads to different leaves. It merges the decisions of multiple decision trees in order to find an answer, which represents the average of all these decision trees.
+
+![RF](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/RandomForest.png)
+
+#### Bootstrapping
+
+When training, each tree in a random forest learns from a random sample of the data points. The samples are drawn with replacement, known as bootstrapping, which means that some samples will be used multiple times in a single tree. The idea is that by training each tree on different samples, although each tree might have high variance with respect to a particular set of the training data, overall, the entire forest will have lower variance but not at the cost of increasing the bias.At test time, predictions are made by averaging the predictions of each decision tree.
+
+![BootStrap](https://github.com/faiz-hasan11/MLAlgorithmsFromScratch/blob/master/Images/Bootstrapping.png)
+
+#### Finding Best HyperParameters
+
+We pass a set of hyperparameter and try to find their best value for best results.
+
+```javascript
+def best_params():
+    acc_max = 0
+    n_trees_max = 0
+    n_trees_list = [i for i in range(2, 11)]
+    for n_tree in n_trees_list:
+        clf = RandomForest(n_trees=n_tree)
+        clf.fit(X_train, Y_train)
+        predictions = clf.predict(X_test)
+        acc = accuracy(Y_test, predictions)
+        if acc > acc_max:
+            acc_max = acc
+            n_trees_max = n_tree
+    return (n_trees_max, acc_max)
+```
+
+#### Dataset
+
+The Dataset used is the [Breast Cancer](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html) taken from the SkLearn Library. It has 2 output classes.
+
+#### Accuracy
+
+The model achieved an accuracy of approx 95% with Number Of Trees = 6
+
+##### Made by Syed Faiz Hasan :wave:
